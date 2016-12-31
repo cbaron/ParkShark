@@ -12,6 +12,8 @@ module.exports = Object.create( {
         window.onpopstate = this.handle.bind(this)
 
         this.handle()
+
+        return this
     },
 
     handle() {

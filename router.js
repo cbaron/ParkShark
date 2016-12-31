@@ -23,6 +23,7 @@ module.exports = Object.create( Object.assign( {}, require('./lib/MyObject'), {
     html( request, response ) {
         response.writeHead( 200 )
         response.end( require('./templates/page')( {
+            googleApiKey: process.env.GOOGLE_API_KEY,
             isDev: this.isDev,
             title: process.env.NAME
         } ) )
