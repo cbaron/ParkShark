@@ -85,7 +85,7 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         this.icon = {            
             path: this.garagePath,
             strokeColor: '#d380d6',
-            fillOpacity: 1,
+            fillOpacity: .1,
             anchor: new google.maps.Point(0,0),
             strokeWeight: 1,
             scale: .050
@@ -115,7 +115,6 @@ module.exports = Object.assign( {}, require('./__proto__'), {
     },
     
     onSwipeMove( e ) {
-        //console.log( 'onSwipeMove' )
         e.preventDefault()
     },
     
