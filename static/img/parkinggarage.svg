@@ -1,0 +1,75 @@
+<svg id="ParkShark_Map_Markers" data-name="ParkShark Map Markers" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="72" height="45" viewBox="0 0 72 45">
+  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""/>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?></metadata>
+<defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #545454;
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        filter: url(#filter-2);
+      }
+    </style>
+    <filter id="filter" x="-165" y="-576" width="96" height="146" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="1.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-opacity="0.2"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#f89540"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-2" x="-295" y="-576" width="96" height="146" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="1.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-opacity="0.2"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#d27fd5"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+  </defs>
+  <path id="marker_shape_orange" data-name="marker shape orange" class="cls-1" d="M-117.02-571.024a42.988,42.988,0,0,1,43.007,42.97c0,15.885-10.25,27.485-21.455,37.193-21.555,18.677-21.552,55.845-21.552,55.845s0-36.852-21.613-55.879c-11.108-9.781-21.394-21.3-21.394-37.159A42.988,42.988,0,0,1-117.02-571.024Z"/>
+  <path id="marker_shape_purple" data-name="marker shape purple" class="cls-2" d="M-247.02-571.024a42.988,42.988,0,0,1,43.007,42.97c0,15.885-10.251,27.485-21.455,37.193-21.555,18.677-21.552,55.845-21.552,55.845s0-36.852-21.613-55.879c-11.108-9.781-21.394-21.3-21.394-37.159A42.988,42.988,0,0,1-247.02-571.024Z"/>
+  <image id="parking_garage" data-name="parking garage" width="72" height="45" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAAtCAQAAACn3eUlAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhAxUKOg+JKvnEAAAC7UlEQVRYw+3YT2gdVRQG8F/m/WnSKIy4kSISDSKK2CxEVJC+nd2ZbioVlBRxUUSw4MKCoF27kNqNK6O4sxRTwY0oiSCi4J+nFEFdWHeu6tOaNOa9zLh4t/PyJpN5r1Kmivlmcc/c79x7P849585lJlJecLtITx2JBM3QQj1YiUiCSGRdkzBCYAd+Pc3g1xOFUYk6NkxaxzkfhnEth9Q1JXpInJXek36VVo3lVHg+yFORi1ksqsMfmdXMU3W/OuoOkSMOVybomdx7WwdzYuo47zwerTBCh0OWNt0AjmuL8bMtableoaDT23pmzFhiq6DJzPrI27pZTZG40bPmwHfecFGkpouGrmlPOQB+8KZfTLksCjMlDnl8aOFXvYuaTdQ0nHELuCC2CLJ8P50l+sHUtuelwL1YwB0M3DsF3L5cET2Z439K0zRNW2lrUGXbcamk768CbrVk01eNg9dc8ErfLBIUjTXJeP6NEWMbYcM4qXM1izdy7biCNkfM2wXnzJvLJ3U5yia+crBebWShho63wCkLxZMU5clGaC8XcL2csCKuLEJtsWWL6BRHaLqgbyrXbkXTztgzQtAetHQcBXFxhO4s6JsJ7WyJ/20F3F1jRKg/f1hhEKGBtOc8YXXo4jDlpsA94lOXyI7NnqlwtDHrM78PXUSm3WxcrHhvWNAA95YMu7uEmy2MXzmuVO0Bc06a/2eVcS3RzazHtK0YuvNVgYf8JtHVEOnaG772fOuURa3xz6FrhWOOFfYviftG1YJe940k3M8Tk572MHjefsfNi6sW9LH3h96PgJb9FnxiyULVgvKZ2i+qZejfh6qusvx6f+Ydqo5QXtDLvsg+L5tqzlzvLWtrlyu+7tgVtCvovyZo5HpVCxp5p/jfb9muoF1BFQr6l0irWkY8ymEi5ax9Nux1fwWCPtdTt+LETg5197nVA5VF6EEM/qUUIPKjNV9WJgi+9v3O5EQKcfZrYRTG8xr4bfXv/4aIrFnbeeDf46STD3H0wmwAAAAASUVORK5CYII="/>
+</svg>
