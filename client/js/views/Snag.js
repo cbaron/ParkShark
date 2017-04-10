@@ -11,20 +11,20 @@ module.exports = Object.assign( {}, require('./__proto__'), {
     },
 
     bindSwipe() {
-        this.swipeTime = 2000
-        this.minX = 15
-        this.maxY = 60
+        this.swipeTime = 1000
+        this.minX = 30
+        this.maxY = 30
 
-        this.els.container.addEventListener( 'mousedown',  e => this.onSwipeStart(e), false )
+        //this.els.container.addEventListener( 'mousedown',  e => this.onSwipeStart(e), false )
         this.els.container.addEventListener( 'touchstart', e => this.onSwipeStart(e), false )
-        this.els.container.addEventListener( 'mouseup', e => this.onSwipeEnd(e), false )
+        //this.els.container.addEventListener( 'mouseup', e => this.onSwipeEnd(e), false )
         this.els.container.addEventListener( 'touchend', e => this.onSwipeEnd(e), false )
 
-        this.els.container.addEventListener( 'touchmove', e => e.stopImmediatePropagation(), { passive: false } )
-        this.els.container.addEventListener( 'mousemove', e => e.stopImmediatePropagation(), { passive: false } )
+        //this.els.container.addEventListener( 'touchmove', e => e.stopImmediatePropagation(), { passive: false } )
+        //this.els.container.addEventListener( 'mousemove', e => e.stopImmediatePropagation(), { passive: false } )
 
-        this.els.image.addEventListener( 'touchmove', e => e.preventDefault(), { passive: false } )
-        this.els.image.addEventListener( 'mousemove', e => e.preventDefault(), { passive: false } )
+        //this.els.image.addEventListener( 'touchmove', e => e.preventDefault(), { passive: false } )
+        //this.els.image.addEventListener( 'mousemove', e => e.preventDefault(), { passive: false } )
     },
 
     getTemplateOptions() { return this.data },
@@ -291,15 +291,14 @@ module.exports = Object.assign( {}, require('./__proto__'), {
     },
 
     onSwipeLeft() {
+        if( this.isExpanded() ) { return this.swipeImage('right') }
+        
         if( this.updating ) return false
         this.updating = true;
-
-        if( this.isExpanded() ) { return this.swipeImage('right') }
 
         this.removeOldMarkers()
 
         this.currentSpot = this.data[ this.currentSpot + 1 ] ? this.currentSpot + 1 : 0
-        console.log( this.currentSpot )
 
         this.update('right')
         .then( () => Promise.resolve( this.updating = false ) )
@@ -307,15 +306,14 @@ module.exports = Object.assign( {}, require('./__proto__'), {
     },
     
     onSwipeRight() {
+        if( this.isExpanded() ) { return this.swipeImage('left') }
+        
         if( this.updating ) return false
         this.updating = true;
-
-        if( this.isExpanded() ) { return this.swipeImage('left') }
 
         this.removeOldMarkers()
 
         this.currentSpot = this.data[ this.currentSpot - 1 ] ? this.currentSpot - 1 : this.data.length - 1
-        console.log( this.currentSpot )
 
         this.update('left')
         .then( () => Promise.resolve( this.updating = false ) )
