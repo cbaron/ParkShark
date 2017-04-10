@@ -1,7 +1,5 @@
 module.exports = Object.assign( {}, require('./__proto__'), {
 
-    Pointer: require('./templates/lib/MapPointer'),
-
     events: {
         snag: 'click'
     },
@@ -203,14 +201,8 @@ module.exports = Object.assign( {}, require('./__proto__'), {
                 new google.maps.Marker( {
                     position: datum.mapLocation,
                     title: datum.name,
-                    label: datum.name,
-                    //path: this.Pointer,
-                    scale: 5,
-                    strokeColor: 'purple',
-                    strokeOpacity: .8,
-                    strokeWeight: 3,
-                    fillColor: 'purple',
-                    fillOpacity: 1
+                    scale: 1,
+                    icon: window.location.origin + `/static/img/${datum.type}.png`
                 } )
         } )
 
@@ -381,7 +373,7 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         const data = this.data[ this.currentSpot ];
 
         if( swipe ) {
-            this.els.container.classList.add('hidden')
+            //this.els.container.classList.add('hidden')
             this.els.container.classList.remove( 'slide-in-left', 'slide-in-right' )
         }
 
@@ -395,7 +387,7 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         return this.renderDirections( data )
         .then( () => {
             if( swipe ) {
-                this.els.container.classList.remove( 'hidden' )
+                //this.els.container.classList.remove( 'hidden' )
                 this.els.container.classList.add( `slide-in-${swipe}` )
             }
             return Promise.resolve()
