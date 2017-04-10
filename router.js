@@ -51,7 +51,7 @@ module.exports = Object.create( Object.assign( {}, require('./lib/MyObject'), {
             response.writeHead(
                 200,
                 {
-                    'Cache-Control': `max-age=600`,
+                    'Cache-Control': `no-cache`,
                     'Connection': 'keep-alive',
                     'Content-Encoding': ext === ".gz" ? 'gzip' : 'identity',
                     'Content-Length': stat.size,

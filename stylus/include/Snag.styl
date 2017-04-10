@@ -7,12 +7,16 @@
 
 
 .Snag
+    display: block !important
     height: 100%
-    position: relative
+    transition: opacity .1s ease-in-out
+
+    &.hidden
+        background-color: #f6f4f3
+        opacity: .25 !important
 
     .map-wrap
-        height: 100%
-        z-index: 1
+        height: 85%
 
         .map
             height: 100%
@@ -51,33 +55,35 @@
 
 
     .info-main
-        padding: 0 1rem 1rem
         background-color: #f6f4f3
-        z-index: 1000
-        position: relative
-        width: 100%
-        margin-top: -23%
         border-top: 1px solid transparent
         border-radius: .5rem
+        padding: 0 1rem 1rem
+        position: relative
+        width: 100%
             
         .page-ui
             left: 0
             margin-left: auto
             margin-right: auto
             position: absolute
-            top: -1.6rem
+            top: -2.25rem
             right: 0
             text-align: center
             
             svg.dot
-                height: 7px
-                margin: 0 3px
+                height: 1rem
+                fill: white
+                margin: 0 .25rem
+
+                &.selected
+                    fill: #007aff
 
 
         .weather
             position: absolute
             right: .5rem
-            top: -2rem
+            top: -3rem
             background-color: #fbf7f2
             padding: .075rem .175rem .075rem 1.9rem
             
@@ -126,7 +132,7 @@
                             font-weight: normal
                     
         .spot-details
-            margin-top: 1rem
+            margin-top: 2rem
             
             >div:first-child
                 font-size: 1.5rem

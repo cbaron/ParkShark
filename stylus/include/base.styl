@@ -14,6 +14,8 @@ body
     font-weight: 400
     line-height: 1.5
     margin: 0
+    overflow: scroll
+    -webkit-overflow-scrolling: touch
     
 h1, h2, h3, h4, h5, h6
     margin-top: 0
@@ -155,3 +157,21 @@ button.delete
 img.preview
     display: inline-block;
     width: 80%;
+
+.slide-in-right {
+    animation: slide-in-right 0.5s forwards;
+}
+
+.slide-in-left {
+    animation: slide-in-left 0.5s forwards;
+}
+
+@keyframes slide-in-left {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0%); }
+}
+
+@keyframes slide-in-right {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+}

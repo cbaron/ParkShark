@@ -128,7 +128,10 @@ module.exports = Object.assign( { }, require('../../../lib/MyObject'), require('
         return new Promise( resolve => {
             this.onShownProxy = e => this.onShown(resolve)
             this.els.container.addEventListener( 'transitionend', this.onShownProxy )
-            this.els.container.classList.remove( 'hide', 'hidden' )
+            window.requestAnimationFrame( () => {
+                this.els.container.classList.remove( 'hidden' )
+                window.requestAnimationFrame( () => this.els.container.classList.remove( 'hide' ) )
+            } )
         } )
     },
 

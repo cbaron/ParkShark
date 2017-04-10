@@ -9,8 +9,6 @@ module.exports = Object.assign( {}, require('./__proto__'), {
 
         this.els.container.addEventListener( 'mousedown',  e => this.onSwipeStart(e), false )
         this.els.container.addEventListener( 'touchstart', e => this.onSwipeStart(e), false )
-        this.els.container.addEventListener( 'mousemove', e => this.onSwipeMove(e), false )
-        this.els.container.addEventListener( 'touchmove', e => this.onSwipeMove(e), false )
         this.els.container.addEventListener( 'mouseup', e => this.onSwipeEnd(e), false )
         this.els.container.addEventListener( 'touchend', e => this.onSwipeEnd(e), false )
     },
@@ -18,305 +16,192 @@ module.exports = Object.assign( {}, require('./__proto__'), {
     getTemplateOptions() { return this.data },
 
     data: [
-        /*{
-            id: 1,
-            distance: '300 ft away',
-            mapLocation: { lat: -34.397, lng: 150.644 },
-            spotLocation: { lat: -34.397, lng: 150.644 },
-            name: 'LAZ Parking',
-            context: [
-                'Private Parking Structure',
-                '88/240 spots'
-            ],
-            details: [
-                '$3/hr',
-                '4hr max',
-                'open 24 hrs'
-            ],
-            image: 'sidekick-shed-xs.jpg',
-            temp: 57
-        }*/
         {
-            id: 1,
-            distance: 'ft away',
             mapLocation: { lat: 39.9564950, lng: -75.1925837  },
-            spotLocation: { lat: 39.9564950, lng: -75.1925837  },
             name: 'Drexel Lot C',
             context: [
-                'Private Parking Structure',
-                '88/240 spots'
+                'Hourly/Private Parking Structure',
+                '5/60 spots'
             ],
             details: [
-                '$3/hr',
-                '5hr max',
+                '$3/hr 0-3 hours',
+                '3-5hr max time is $14.00',
                 'open 24 hrs'
             ],
             image: 'spots/lot_c.JPG',
-            temp: 57
+            spots: [ 8, 9, 10, 11, 49 ]
         },
         {
-            id: 2,
-            distance: 'ft away',
             mapLocation: { lat: 39.9593209, lng: -75.1920907 },
-            spotLocation: { lat: 39.9593209, lng: -75.1920907 },
-            name: 'Drexel Lot D Spot 45',
+            name: 'Drexel Lot D',
             context: [
                 'Private Parking Structure',
-                '88/240 spots'
+                '1/60 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_d_spot_45.JPG',
-            temp: 57
+            image: 'spots/lot_d.JPG',
+            spots: [ 45 ]
         },
         {
-            id: 3,
-            distance: 'ft away',
             mapLocation: { lat: 39.9599256, lng: -75.1889950 },
-            spotLocation: { lat: 39.9599256, lng: -75.1889950 },
             name: 'Drexel Lot H Spot 4',
             context: [
                 'Private Parking Structure',
-                '88/240 spots'
+                '3/10 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_h_spot_4.JPG',
-            temp: 57
+            image: 'spots/lot_h.JPG',
+            spots: [ 4, 15, 26 ]
         },
         {
-            id: 4,
-            distance: 'ft away',
-            mapLocation: { lat: 39.9597497, lng: -75.1886260 },
-            spotLocation: { lat: 39.9597497, lng: -75.1886260 },
-            name: 'Drexel Lot H Spot 15',
-            context: [
-                'Private Parking Structure',
-                '88/240 spots'
-            ],
-            details: [
-                'Permit Only'
-            ],
-            image: 'spots/lot_h_spot_15.JPG',
-            temp: 57
-        },
-        {
-            id: 5,
-            distance: 'ft away',
-            mapLocation: { lat: 39.9596049, lng: -75.1888546 },
-            spotLocation: { lat: 39.9596049, lng: -75.1888546 },
-            name: 'Drexel Lot H Spot 26',
-            context: [
-                'Private Parking Structure',
-                '88/240 spots'
-            ],
-            details: [
-                'Permit Only'
-            ],
-            image: 'spots/lot_h_spot_26.JPG',
-            temp: 57
-        },
-        {
-            id: 6,
-            distance: 'ft away',
             mapLocation: { lat: 39.9583045, lng: -75.18882359 },
-            spotLocation: { lat: 39.9583045, lng: -75.18882359 },
             name: 'Drexel Lot J',
             context: [
                 'Private Parking Structure',
-                '88/240 spots'
+                '4/11 spots'
             ],
             details: [
                 'Permit Only'
             ],
             image: 'spots/lot_j.JPG',
-            temp: 57
+            spots: [ 1, 2, 3, 4 ]
         },
         {
-            id: 7,
-            distance: 'ft away',
             mapLocation: { lat: 39.9575587, lng: -75.1934095 },
-            spotLocation: { lat: 39.9575587, lng: -75.1934095 },
-            name: 'Drexel Lot K Spot 115',
+            name: 'Drexel Lot K',
             context: [
                 'Private Parking Structure',
-                '88/240 spots'
+                '1/210 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_k_spot_115.JPG',
-            temp: 57
+            image: 'spots/lot_k.JPG',
+            spots: [ 115 ]
         },
         {
-            id: 8,
-            distance: 'ft away',
             mapLocation: { lat: 39.9563293, lng: -75.1911949 },
-            spotLocation: { lat: 39.9563293, lng: -75.1911949 },
             name: 'Drexel Lot P',
             context: [
                 'Private Parking Structure',
-                '88/240 spots'
+                '5/9 spots'
             ],
             details: [
                 'Permit Only'
             ],
             image: 'spots/lot_p.JPG',
-            temp: 57
+            spots: [ 1, 2, 3, 4, 5 ]
         },
         {
-            id: 9,
-            distance: 'ft away',
-            mapLocation: { lat: 39.9563185, lng: -75.1911229 },
-            spotLocation: { lat: 39.9563185, lng: -75.1911229 },
-            name: 'Drexel Lot P Spot 2',
-            context: [
-                'Private Parking Structure',
-                '88/240 spots'
-            ],
-            details: [
-                'Permit Only'
-            ],
-            image: 'spots/lot_p_spot_2.JPG',
-            temp: 57
-        },
-        {
-            id: 10,
-            distance: 'ft away',
             mapLocation: { lat: 39.9579902, lng: -75.1901658 },
-            spotLocation: { lat: 39.9579902, lng: -75.1901658 },
-            name: 'Drexel Lot R Spot 20',
+            name: 'Drexel Lot R',
             context: [
                 'Private Parking Structure',
-                '88/240 spots'
+                '1/24 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_r_spot_20.JPG',
-            temp: 57
+            image: 'spots/lot_r_signage.JPG',
+            spots: [ 20 ]
         },
         {
-            id: 11,
-            distance: 'ft away',
             mapLocation: { lat: 39.9568154, lng: -75.1872669 },
-            spotLocation: { lat: 39.9568154, lng: -75.1872669 },
             name: 'Drexel Lot S',
             context: [
                 'Private Parking Structure',
-                '88/240 spots'
+                '3/240 spots'
             ],
             details: [
                 'Permit Only'
             ],
             image: 'spots/lot_s_signage.JPG',
-            temp: 57
+            spots: [ 71, 72, 73 ]
         },
         {
-            id: 12,
-            distance: 'ft away',
             mapLocation: { lat: 39.9578782, lng: -75.1882803 },
-            spotLocation: { lat: 39.9578782, lng: -75.1882803 },
-            name: 'Drexel Lot T Spot 2',
+            name: 'Drexel Lot T',
             context: [
                 'Private Parking Structure',
-                '88/240 spots'
+                '2/19 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_t_spot_2.JPG',
-            temp: 57
+            image: 'spots/lot_t_signage.JPG',
+            spots: [ 2, 4 ]
         },
         {
-            id: 13,
-            distance: 'ft away',
-            mapLocation: { lat: 39.9576998, lng: -75.1881897 },
-            spotLocation: { lat: 39.9576998, lng: -75.1881897 },
-            name: 'Drexel Lot T Spot 4',
-            context: [
-                'Private Parking Structure',
-                '88/240 spots'
-            ],
-            details: [
-                'Permit Only'
-            ],
-            image: 'spots/lot_t_spot_4.JPG',
-            temp: 57
-        },
-        {
-            id: 14,
-            distance: 'ft away',
             mapLocation: { lat: 39.9545688, lng: -75.1915902 },
-            spotLocation: { lat: 39.9545688, lng: -75.1915902 },
-            name: 'Off-Campus Structure',
+            name: 'Drexel Parking Services',
             context: [
-                'Private Parking Structure',
-                '88/240 spots'
+                'Public Parking Structure',
+                '88/803 spots'
             ],
             details: [
                 '$13/hour'
             ],
             image: 'spots/offcampusstructure.jpg',
-            temp: 57
         }
     ],
 
     initMap() {
+        this.directionsService = new google.maps.DirectionsService()
+
         this.map = new google.maps.Map( this.els.map, {
-          center: { lat: 39.956135, lng: -75.190693 },//3333 Market St, Philadelphia, PA 19104
-          disableDefaultUI: true,
-          gestureHandling: 'greedy',
-          zoom: 15
+            disableDefaultUI: true,
+            disableDoubleClickZoom: true,
+            draggable: false,
+            navigationControl: false,
+            scrollwheel: false,
+            navigationControl: false,
+            mapTypeControl: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            scaleControl: false
+            //zoom: 15
         } )
 
+        this.origin = { lat: 39.956135, lng: -75.190693 }
+
         const marker = new google.maps.Marker( {
-            position: this.map.getCenter(),
+            position: this.origin,
             icon: {
+                fillColor: '#007aff',
+                fillOpacity: 1,
                 path: google.maps.SymbolPath.CIRCLE,
-                scale: 10,
-                strokeColor: '#007aff'
+                scale: 7,
+                strokeColor: 'white',
+                strokeOpacity: .8,
+                strokeWeight: 3
             },
-            draggable: true,
             map: this.map
         } )
 
-        this.icon = {            
-            path: this.garagePath,
-            strokeColor: '#d380d6',
-            fillOpacity: .1,
-            anchor: new google.maps.Point(0,0),
-            strokeWeight: 1,
-            scale: .050
-        }
+        this.data.forEach( datum => {
+            datum.marker =
+                new google.maps.Marker( {
+                    position: datum.mapLocation,
+                    title: datum.name,
+                    icon: window.location.origin + `/static/img/garage.png`
+                } )
+        } )
 
-        this.renderIcons()
-
+        this.els.pageUi.children[ 0 ].classList.add('selected')
+        this.updating = true
         this.update()
+        .then( () => Promise.resolve( this.updating = false ) )
+        .catch( this.Error )
 
-    },
-
-    renderIcons() {
-        this.data.forEach( datum =>
-            this.markers[ datum.id ] = new google.maps.Marker( {
-                position: datum.spotLocation,
-                map: this.map,
-                title: datum.name,
-                icon: this.icon
-            } )
-        )
     },
 
     onSwipeStart( e ) {
         e = ('changedTouches' in e) ? e.changedTouches[0] : e
         this.touchStartCoords = { x: e.pageX, y :e.pageY }
         this.startTime = new Date().getTime()
-    },
-    
-    onSwipeMove( e ) {
-        e.preventDefault()
     },
     
     onSwipeEnd( e ) {
@@ -331,43 +216,127 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         }
     },
 
+    getOffsetTop( el ) {
+        let top = 0
+        do {
+          if ( !isNaN( el.offsetTop ) ) { top += el.offsetTop }
+        } while( el = el.offsetParent )
+        return top
+    },
+
+    isExpanded() {
+        return this.els.container.clientHeight + window.document.body.scrollTop > this.getOffsetTop( this.els.image )
+    },
+
     onSwipeLeft() {
+        if( this.isExpanded() ) { return this.swipeImage('left') }
+
+        if( this.updating ) return false
+
+        this.updating = true;
+
+        this.removeOldMarkers()
+
         this.currentSpot = this.data[ this.currentSpot + 1 ] ? this.currentSpot + 1 : 0
 
-        this.update()
+        this.update('right')
+        .then( () => Promise.resolve( this.updating = false ) )
+        .catch( this.Error )
     },
     
     onSwipeRight() {
-        console.log('right')
+        if( this.isExpanded() ) { return this.swipeImage('right') }
+
+        if( this.updating ) return false
+
+        this.updating = true;
+
+        this.removeOldMarkers()
+
+        this.currentSpot = this.data[ this.currentSpot - 1 ] ? this.currentSpot - 1 : this.data.length - 1
+
+        this.update('left')
+        .then( () => Promise.resolve( this.updating = false ) )
+        .catch( this.Error )
     },
 
     postRender() {
         this.currentSpot = 0
-        this.markers = { }
 
         window.google
             ? this.initMap()
             : window.initMap = this.initMap
 
         this.bindSwipe()        
-        
+    
+        this.Xhr( { method: 'get', url: `http://api.openweathermap.org/data/2.5/weather?zip=19104,us&APPID=d5e191da9e31b8f644037ca310628102` } )
+        .then( response => this.els.temp.textContent = Math.round( ( response.main.temp * (9/5) ) - 459.67 ) )
+        .catch( e => { console.log( e.stack || e ); this.els.temp.remove() } )
+
         return this
+    },
+
+    removeOldMarkers() {
+        const datum = this.data[ this.currentSpot ]
+        datum.marker.setMap(null)
+        datum.directionsDisplay.setMap(null)
+        this.els.pageUi.children[ this.currentSpot ].classList.remove('selected')
+    },
+
+    renderDirections( data ) {
+        if( data.directionsDisplay ) {
+            this.els.distance.textContent = data.distance
+            return Promise.resolve( data.directionsDisplay.setMap( this.map ) )
+        }
+
+        data.directionsDisplay = new google.maps.DirectionsRenderer( { suppressMarkers: true } )
+        data.directionsDisplay.setMap( this.map )
+
+        return new Promise( ( resolve, reject ) => {
+            this.directionsService.route( {
+                origin: this.origin,
+                destination: data.mapLocation,
+                travelMode: 'DRIVING',
+                unitSystem: google.maps.UnitSystem.IMPERIAL
+            }, ( result, status ) => {
+                if( status === 'OK' ) {
+                    data.directionsDisplay.setDirections(result)
+                    data.distance = `${result.routes[0].legs[0].distance.text} away`
+                    this.els.distance.textContent = data.distance
+                    return resolve()
+                } else { return reject(status) }
+            } )
+        } )
+
     },
 
     templates: {
         Dot: require('./templates/lib/dot')
     },
 
-    update() {
-        const data = this.data[ this.currentSpot ]
+    update( swipe ) {
+        const data = this.data[ this.currentSpot ];
 
-        this.map.setCenter( data.mapLocation )
-        this.els.temp.textContent = data.temp
+        if( swipe ) {
+            this.els.container.classList.add('hidden')
+            this.els.container.classList.remove( 'slide-in-left', 'slide-in-right' )
+        }
+
+        data.marker.setMap( this.map )
+        this.els.pageUi.children[ this.currentSpot ].classList.add('selected')
         this.els.spotName.textContent = data.name
-        this.els.distance.textContent = data.distance
         this.els.spotContext.innerHTML = data.context.join( this.templates.Dot )
         this.els.detail.innerHTML = data.details.join( this.templates.Dot )
         this.els.image.src = `/static/img/${data.image}`
+
+        return this.renderDirections( data )
+        .then( () => {
+            if( swipe ) {
+                this.els.container.classList.remove( 'hidden' )
+                this.els.container.classList.add( `slide-in-${swipe}` )
+            }
+            return Promise.resolve()
+        } )
     }
 
 } )
