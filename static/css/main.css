@@ -16,18 +16,19 @@
 }
 .Snag {
   display: block !important;
-  height: 100%;
   transition: opacity 0.1s ease-in-out;
+  background-color: #f6f4f3;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 .Snag.hidden {
   background-color: #f6f4f3;
   opacity: 0.25 !important;
 }
-.Snag .map-wrap {
-  height: 85%;
-}
 .Snag .map-wrap .map {
   height: 100%;
+  width: 100%;
+  margin: 0 auto;
 }
 .Snag .map-wrap .map svg {
   height: 20px;
@@ -63,9 +64,7 @@
   background-color: #f6f4f3;
   border-top: 1px solid transparent;
   border-radius: 0.5rem;
-  padding: 0 1rem 1rem;
   position: relative;
-  width: 100%;
 }
 .Snag .info-main .page-ui {
   left: 0;
@@ -135,6 +134,10 @@
 }
 .Snag .info-main .spot-details {
   margin-top: 2rem;
+  padding: 0 1rem;
+}
+.Snag .info-main .spot-details .context {
+  font-size: 0.75rem;
 }
 .Snag .info-main .spot-details >div:first-child {
   font-size: 1.5rem;
@@ -145,8 +148,10 @@
   margin: 0 3px 3px 3px;
 }
 .Snag .info-main .spot-details img {
-  width: 100%;
-  margin-top: 1rem;
+  display: block !important;
+  height: 20rem;
+  max-width: 100%;
+  margin: 1rem auto;
 }
 .Snag svg {
   height: 10px;
@@ -156,7 +161,6 @@
 }
 html {
   font-size: 100%;
-  height: 100%;
 }
 *,
 *::before,
@@ -164,14 +168,11 @@ html {
   box-sizing: border-box;
 }
 body {
-  height: 100%;
   font-family: Lato;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 h1,
 h2,
@@ -211,9 +212,6 @@ input:focus,
 select:focus,
 button:focus {
   outline: 0;
-}
-#content {
-  height: 100%;
 }
 .hide {
   opacity: 0;

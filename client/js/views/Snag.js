@@ -1,6 +1,16 @@
 module.exports = Object.assign( {}, require('./__proto__'), {
 
-    garagePath: require('./lib/carPath'),
+    Pointer: require('./templates/lib/MapPointer'),
+
+    events: {
+        snag: 'click'
+    },
+
+    onSnagClick() {
+        const location = this.data[ this.currentSpot ].mapLocation
+
+        window.location = `waze://?ll=${location.lat},${location.lng}&navigate=yes`
+    },
 
     bindSwipe() {
         this.swipeTime = 1000
@@ -11,6 +21,12 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         this.els.container.addEventListener( 'touchstart', e => this.onSwipeStart(e), false )
         this.els.container.addEventListener( 'mouseup', e => this.onSwipeEnd(e), false )
         this.els.container.addEventListener( 'touchend', e => this.onSwipeEnd(e), false )
+
+        this.els.container.addEventListener( 'touchmove', e => e.stopImmediatePropagation(), { passive: false } )
+        this.els.container.addEventListener( 'mousemove', e => e.stopImmediatePropagation(), { passive: false } )
+
+        this.els.image.addEventListener( 'touchmove', e => e.preventDefault(), { passive: false } )
+        this.els.image.addEventListener( 'mousemove', e => e.preventDefault(), { passive: false } )
     },
 
     getTemplateOptions() { return this.data },
@@ -20,7 +36,7 @@ module.exports = Object.assign( {}, require('./__proto__'), {
             mapLocation: { lat: 39.9564950, lng: -75.1925837  },
             name: 'Drexel Lot C',
             context: [
-                'Hourly/Private Parking Structure',
+                'Hourly/Private Lot',
                 '5/60 spots'
             ],
             details: [
@@ -28,112 +44,112 @@ module.exports = Object.assign( {}, require('./__proto__'), {
                 '3-5hr max time is $14.00',
                 'open 24 hrs'
             ],
-            image: 'spots/lot_c.JPG',
-            spots: [ 8, 9, 10, 11, 49 ]
+            images: [ 'lot_c', 8, 9, 10, 11, 49 ],
+            type: 'lot'
         },
         {
             mapLocation: { lat: 39.9593209, lng: -75.1920907 },
             name: 'Drexel Lot D',
             context: [
-                'Private Parking Structure',
+                'Private Lot',
                 '1/60 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_d.JPG',
-            spots: [ 45 ]
+            images: [ 'lot_d', 45 ],
+            type: 'lot'
         },
         {
             mapLocation: { lat: 39.9599256, lng: -75.1889950 },
-            name: 'Drexel Lot H Spot 4',
+            name: 'Drexel Lot H',
             context: [
-                'Private Parking Structure',
+                'Private Lot',
                 '3/10 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_h.JPG',
-            spots: [ 4, 15, 26 ]
+            images: [ 'lot_h', 4, 15, 26 ],
+            type: 'lot'
         },
         {
             mapLocation: { lat: 39.9583045, lng: -75.18882359 },
             name: 'Drexel Lot J',
             context: [
-                'Private Parking Structure',
+                'Private Lot',
                 '4/11 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_j.JPG',
-            spots: [ 1, 2, 3, 4 ]
+            images: [ 'lot_j', 1, 2, 3, 4 ],
+            type: 'lot'
         },
         {
             mapLocation: { lat: 39.9575587, lng: -75.1934095 },
             name: 'Drexel Lot K',
             context: [
-                'Private Parking Structure',
+                'Private Lot',
                 '1/210 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_k.JPG',
-            spots: [ 115 ]
+            images: [ 'lot_k', 115 ],
+            type: 'lot'
         },
         {
             mapLocation: { lat: 39.9563293, lng: -75.1911949 },
             name: 'Drexel Lot P',
             context: [
-                'Private Parking Structure',
+                'Private Lot',
                 '5/9 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_p.JPG',
-            spots: [ 1, 2, 3, 4, 5 ]
+            images: [ 'lot_p', 1, 2, 3, 4, 5 ],
+            type: 'lot'
         },
         {
             mapLocation: { lat: 39.9579902, lng: -75.1901658 },
             name: 'Drexel Lot R',
             context: [
-                'Private Parking Structure',
+                'Private Lot',
                 '1/24 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_r_signage.JPG',
-            spots: [ 20 ]
+            images: [ 'lot_r', 20 ],
+            type: 'lot'
         },
         {
             mapLocation: { lat: 39.9568154, lng: -75.1872669 },
             name: 'Drexel Lot S',
             context: [
-                'Private Parking Structure',
+                'Private Lot',
                 '3/240 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_s_signage.JPG',
-            spots: [ 71, 72, 73 ]
+            images: [ 'lot_s', 71, 72, 73 ],
+            type: 'lot'
         },
         {
             mapLocation: { lat: 39.9578782, lng: -75.1882803 },
             name: 'Drexel Lot T',
             context: [
-                'Private Parking Structure',
+                'Private Lot',
                 '2/19 spots'
             ],
             details: [
                 'Permit Only'
             ],
-            image: 'spots/lot_t_signage.JPG',
-            spots: [ 2, 4 ]
+            images: [ 'lot_t', 2, 4 ],
+            type: 'lot'
         },
         {
             mapLocation: { lat: 39.9545688, lng: -75.1915902 },
@@ -145,7 +161,8 @@ module.exports = Object.assign( {}, require('./__proto__'), {
             details: [
                 '$13/hour'
             ],
-            image: 'spots/offcampusstructure.jpg',
+            images: [ 'offcampusstructure' ],
+            type: 'garage'
         }
     ],
 
@@ -186,7 +203,14 @@ module.exports = Object.assign( {}, require('./__proto__'), {
                 new google.maps.Marker( {
                     position: datum.mapLocation,
                     title: datum.name,
-                    icon: window.location.origin + `/static/img/garage.png`
+                    label: datum.name,
+                    //path: this.Pointer,
+                    scale: 5,
+                    strokeColor: 'purple',
+                    strokeOpacity: .8,
+                    strokeWeight: 3,
+                    fillColor: 'purple',
+                    fillOpacity: 1
                 } )
         } )
 
@@ -225,11 +249,40 @@ module.exports = Object.assign( {}, require('./__proto__'), {
     },
 
     isExpanded() {
-        return this.els.container.clientHeight + window.document.body.scrollTop > this.getOffsetTop( this.els.image )
+        return window.innerHeight + window.document.body.scrollTop > this.getOffsetTop( this.els.image )
+    },
+
+    swipeImage( direction ) {
+        const datum = this.data[ this.currentSpot ]
+
+        let image = new Image()
+
+        image.onload = () => {
+            this.els.image.src = image.src
+            //this.els.image.classList.remove( 'hide' )
+            //window.requestAnimationFrame( () =>  this.els.image.classList.add( `slide-in-${direction}` ) )
+        }
+
+        if( !datum.imageIndex ) datum.imageIndex = 0
+
+        datum.imageIndex =
+            direction === 'left'
+                ? datum.images[ datum.imageIndex + 1 ]
+                    ? datum.imageIndex + 1
+                    : 0
+                : datum.images[ datum.imageIndex - 1 ]
+                    ? datum.imageIndex - 1
+                    : datum.images.length - 1
+
+        //this.els.image.classList.add('hide')
+        //window.requestAnimationFrame( () => this.els.image.classList.remove( 'slide-in-left', 'slide-in-right' ) )
+
+        image.src = this.getImageSrc( datum, datum.imageIndex )
+
     },
 
     onSwipeLeft() {
-        if( this.isExpanded() ) { return this.swipeImage('left') }
+        if( this.isExpanded() ) { return this.swipeImage('right') }
 
         if( this.updating ) return false
 
@@ -245,7 +298,7 @@ module.exports = Object.assign( {}, require('./__proto__'), {
     },
     
     onSwipeRight() {
-        if( this.isExpanded() ) { return this.swipeImage('right') }
+        if( this.isExpanded() ) { return this.swipeImage('left') }
 
         if( this.updating ) return false
 
@@ -262,6 +315,8 @@ module.exports = Object.assign( {}, require('./__proto__'), {
 
     postRender() {
         this.currentSpot = 0
+
+        this.els.mapWrap.style.height = `${window.innerHeight - 140}px`
 
         window.google
             ? this.initMap()
@@ -314,6 +369,14 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         Dot: require('./templates/lib/dot')
     },
 
+    getImageSrc( datum, imageIndex ) {
+        const path = typeof datum.images[ imageIndex ] === 'string'
+            ? datum.images[ imageIndex ]
+            : `${datum.images[0]}_spot_${datum.images[ imageIndex ]}`
+
+        return `/static/img/spots/${path}.JPG`
+    },
+
     update( swipe ) {
         const data = this.data[ this.currentSpot ];
 
@@ -327,7 +390,7 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         this.els.spotName.textContent = data.name
         this.els.spotContext.innerHTML = data.context.join( this.templates.Dot )
         this.els.detail.innerHTML = data.details.join( this.templates.Dot )
-        this.els.image.src = `/static/img/${data.image}`
+        this.els.image.src = this.getImageSrc( data, data.index || 0 )
 
         return this.renderDirections( data )
         .then( () => {

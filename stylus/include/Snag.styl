@@ -8,19 +8,22 @@
 
 .Snag
     display: block !important
-    height: 100%
     transition: opacity .1s ease-in-out
+    background-color: #f6f4f3
+    margin-bottom: 2rem
+    padding-bottom: 2rem
 
     &.hidden
         background-color: #f6f4f3
         opacity: .25 !important
 
     .map-wrap
-        height: 85%
 
         .map
             height: 100%
-            
+            width: 100%
+            margin: 0 auto 
+             
             svg
                 height: 20px
                 width: 20px
@@ -58,9 +61,7 @@
         background-color: #f6f4f3
         border-top: 1px solid transparent
         border-radius: .5rem
-        padding: 0 1rem 1rem
         position: relative
-        width: 100%
             
         .page-ui
             left: 0
@@ -133,6 +134,10 @@
                     
         .spot-details
             margin-top: 2rem
+            padding: 0 1rem
+
+            .context
+                font-size: .75rem
             
             >div:first-child
                 font-size: 1.5rem
@@ -143,8 +148,10 @@
                 margin: 0 3px 3px 3px
                 
             img
-                width: 100%
-                margin-top: 1rem
+                display: block !important
+                height: 20rem
+                max-width: 100%
+                margin: 1rem auto
 
     svg
         height: 10px

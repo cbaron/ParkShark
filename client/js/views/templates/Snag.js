@@ -1,7 +1,7 @@
 module.exports = p => {
     const pageUi = require('./lib/dot')
     return `<div>
-        <div class="map-wrap">
+        <div data-js="mapWrap" class="map-wrap">
             <div data-js="map" class="map"></div>
             <div class="menu">
                 <div class="menu-item">
@@ -31,9 +31,10 @@ module.exports = p => {
             </div>
             <div class="spot-details">
                 <div data-js="spotName"></div>
-                <div data-js="spotContext"></div>
-                <div data-js="detail"></div>
+                <div class="context" data-js="spotContext"></div>
+                <div class="context" data-js="detail"></div>
                 <img data-js="image" />
             </div>
         </div>
-    </div>` }
+    </div>`
+}
