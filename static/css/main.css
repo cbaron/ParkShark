@@ -64,6 +64,7 @@
   background-color: #f6f4f3;
   border-top: 1px solid transparent;
   border-radius: 0.5rem;
+  font-family: sans-serif;
   position: relative;
 }
 .Snag .info-main .page-ui {
@@ -78,7 +79,8 @@
 .Snag .info-main .page-ui svg.dot {
   height: 1rem;
   fill: #fff;
-  margin: 0 0.25rem;
+  margin: 0 0.1rem;
+  padding: 0 0.1rem;
 }
 .Snag .info-main .page-ui svg.dot.selected {
   fill: #007aff;
@@ -215,7 +217,7 @@ button:focus {
 }
 .hide {
   opacity: 0;
-  transition: all 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 .hidden {
   display: none !important;
@@ -319,10 +321,10 @@ img.preview {
   width: 80%;
 }
 .slide-in-right {
-  animation: slide-in-right 0.5s forwards;
+  animation: slide-in-right 1s forwards;
 }
 .slide-in-left {
-  animation: slide-in-left 0.5s forwards;
+  animation: slide-in-left 1s forwards;
 }
 @-moz-keyframes slide-in-left {
   0% {

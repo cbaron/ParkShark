@@ -373,7 +373,7 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         const data = this.data[ this.currentSpot ];
 
         if( swipe ) {
-            //this.els.container.classList.add('hidden')
+            this.els.container.classList.add('hidden')
             this.els.container.classList.remove( 'slide-in-left', 'slide-in-right' )
         }
 
@@ -383,12 +383,11 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         this.els.spotContext.innerHTML = data.context.join( this.templates.Dot )
         this.els.detail.innerHTML = data.details.join( this.templates.Dot )
         this.els.image.src = this.getImageSrc( data, data.index || 0 )
-
         return this.renderDirections( data )
         .then( () => {
             if( swipe ) {
-                //this.els.container.classList.remove( 'hidden' )
-                this.els.container.classList.add( `slide-in-${swipe}` )
+                this.els.container.classList.remove( 'hidden' )
+                window.requestAnimationFrame( () => this.els.container.classList.add( `slide-in-${swipe}` ) )
             }
             return Promise.resolve()
         } )
