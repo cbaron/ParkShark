@@ -11,9 +11,9 @@ module.exports = Object.assign( {}, require('./__proto__'), {
     },
 
     bindSwipe() {
-        this.swipeTime = 1000
-        this.minX = 30
-        this.maxY = 30
+        this.swipeTime = 2000
+        this.minX = 15
+        this.maxY = 60
 
         this.els.container.addEventListener( 'mousedown',  e => this.onSwipeStart(e), false )
         this.els.container.addEventListener( 'touchstart', e => this.onSwipeStart(e), false )
@@ -204,6 +204,23 @@ module.exports = Object.assign( {}, require('./__proto__'), {
                     scale: 1,
                     icon: window.location.origin + `/static/img/${datum.type}.png`
                 } )
+
+            datum.directionsDisplay = new google.maps.DirectionsRenderer( { suppressMarkers: true } )
+
+            datum.directions = new Promise( resolve => {
+                this.directionsService.route( {
+                    origin: this.origin,
+                    destination: datum.mapLocation,
+                    travelMode: 'DRIVING',
+                    unitSystem: google.maps.UnitSystem.IMPERIAL
+                }, ( result, status ) => {
+                    if( status === 'OK' ) {
+                        datum.directionsDisplay.setDirections(result)
+                        datum.distance = `${result.routes[0].legs[0].distance.text} away`
+                        resolve()
+                    } else { console.log( status ) }
+                } )
+            } )
         } )
 
         this.els.pageUi.children[ 0 ].classList.add('selected')
@@ -274,15 +291,15 @@ module.exports = Object.assign( {}, require('./__proto__'), {
     },
 
     onSwipeLeft() {
-        if( this.isExpanded() ) { return this.swipeImage('right') }
-
         if( this.updating ) return false
-
         this.updating = true;
+
+        if( this.isExpanded() ) { return this.swipeImage('right') }
 
         this.removeOldMarkers()
 
         this.currentSpot = this.data[ this.currentSpot + 1 ] ? this.currentSpot + 1 : 0
+        console.log( this.currentSpot )
 
         this.update('right')
         .then( () => Promise.resolve( this.updating = false ) )
@@ -290,15 +307,15 @@ module.exports = Object.assign( {}, require('./__proto__'), {
     },
     
     onSwipeRight() {
-        if( this.isExpanded() ) { return this.swipeImage('left') }
-
         if( this.updating ) return false
-
         this.updating = true;
+
+        if( this.isExpanded() ) { return this.swipeImage('left') }
 
         this.removeOldMarkers()
 
         this.currentSpot = this.data[ this.currentSpot - 1 ] ? this.currentSpot - 1 : this.data.length - 1
+        console.log( this.currentSpot )
 
         this.update('left')
         .then( () => Promise.resolve( this.updating = false ) )
@@ -336,25 +353,10 @@ module.exports = Object.assign( {}, require('./__proto__'), {
             return Promise.resolve( data.directionsDisplay.setMap( this.map ) )
         }
 
-        data.directionsDisplay = new google.maps.DirectionsRenderer( { suppressMarkers: true } )
-        data.directionsDisplay.setMap( this.map )
-
-        return new Promise( ( resolve, reject ) => {
-            this.directionsService.route( {
-                origin: this.origin,
-                destination: data.mapLocation,
-                travelMode: 'DRIVING',
-                unitSystem: google.maps.UnitSystem.IMPERIAL
-            }, ( result, status ) => {
-                if( status === 'OK' ) {
-                    data.directionsDisplay.setDirections(result)
-                    data.distance = `${result.routes[0].legs[0].distance.text} away`
-                    this.els.distance.textContent = data.distance
-                    return resolve()
-                } else { return reject(status) }
-            } )
+        return data.directions.then( () => {
+            this.els.distance.textContent = data.distance
+            return Promise.resolve( data.directionsDisplay.setMap( this.map ) )
         } )
-
     },
 
     templates: {
@@ -373,8 +375,8 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         const data = this.data[ this.currentSpot ];
 
         if( swipe ) {
-            this.els.container.classList.add('hidden')
-            this.els.container.classList.remove( 'slide-in-left', 'slide-in-right' )
+            //this.els.container.classList.add('hidden')
+            window.requestAnimationFrame( () => this.els.container.classList.remove( 'slide-in-left', 'slide-in-right' ) )
         }
 
         data.marker.setMap( this.map )
@@ -386,7 +388,7 @@ module.exports = Object.assign( {}, require('./__proto__'), {
         return this.renderDirections( data )
         .then( () => {
             if( swipe ) {
-                this.els.container.classList.remove( 'hidden' )
+                //this.els.container.classList.remove( 'hidden' )
                 window.requestAnimationFrame( () => this.els.container.classList.add( `slide-in-${swipe}` ) )
             }
             return Promise.resolve()

@@ -170,6 +170,7 @@ html {
   box-sizing: border-box;
 }
 body {
+  background-color: #f6f4f3;
   font-family: Lato;
   font-size: 1rem;
   font-weight: 400;
